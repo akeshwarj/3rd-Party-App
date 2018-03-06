@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head><title>Home Page</title></head>
+<body>
+	<h1>Welcome to the 3rd Party App</h1>
+	<button onclick="registryLogin()">Login With Registry</button>
+	<script type="text/javascript">
+        function registryLogin() {
+            var url = new URL("http://localhost:9876/oauth/authorize");
+            url.searchParams.set('response_type','code');
+            url.searchParams.append('client_id','utm-ios');
+            url.searchParams.append('redirect_uri','http://localhost:8081/authorized');
+            window.location = url.toString();
+            console.log(window.location.href);
+        }
+	</script>
+</body>
+</html>
